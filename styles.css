@@ -20,18 +20,24 @@ body {
 }
 
 .row {
-  margin-bottom: 20px;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.rating-container {
-  font-size: 22px;
+.rate-and-comment {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 img {
-  height: 600px;
+  height: 300px;
+}
+
+.rating-container {
+  font-size: 22px;
 }
 
 input,
@@ -47,8 +53,8 @@ textarea {
 button {
   background-color: #212529;
   color: #fff;
-  padding: 16px 32px;
-  margin-bottom: 20px;
+  padding: 7px 14px;
+  display: block;
 }
 
 button:hover {
