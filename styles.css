@@ -14,7 +14,7 @@ body {
   margin: 50px auto;
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
   column-gap: 80px;
 }
@@ -33,7 +33,11 @@ body {
 }
 
 img {
-  height: 300px;
+  width: 100%;
+}
+
+.image {
+  width: 400px;
 }
 
 .rating-container {
@@ -91,4 +95,33 @@ h2 {
 .comments {
   overflow: scroll;
   height: 200px;
+}
+
+.image {
+  position: relative;
+  cursor: pointer;
+}
+
+.on-image {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #111;
+  color: #fff;
+  height: 60px;
+  width: 100%;
+
+  font-weight: bold;
+  font-size: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.image:hover .on-image {
+  opacity: 0.8;
 }
