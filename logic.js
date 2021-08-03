@@ -1,20 +1,38 @@
 const commentsList = document.querySelector('#comments-list');
 const form = document.querySelector('#add-rating-form');
+
+const commentsList2 = document.querySelector('#comments-list2');
+const form2 = document.querySelector('#add-rating-form2');
+
 let average = 0;
 let numberOfRatings = 0;
 
-function calculateSum(doc) {
-  average += parseInt(doc.data().rating);
-  numberOfRatings++;
+let average2 = 0;
+let numberOfRatings2 = 0;
+
+function calculateSum(doc, option) {
+  if (option == 1) {
+    average += parseInt(doc.data().rating);
+    numberOfRatings++;
+  } else {
+    average2 += parseInt(doc.data().rating);
+    numberOfRatings2++;
+  }
 }
 
-function printAverage() {
-  average = average / numberOfRatings;
-  let div = document.querySelector('#average-rating');
-  div.innerHTML = average;
+function printAverage(option) {
+  if (option == 1) {
+    average = average / numberOfRatings;
+    let div = document.querySelector('#average-rating');
+    div.innerHTML = average;
+  } else {
+    average2 = average2 / numberOfRatings2;
+    let div = document.querySelector('#average-rating2');
+    div.innerHTML = average2;
+  }
 }
 
-function renderComment(doc) {
+function renderComment(doc, option) {
   let li = document.createElement('li');
   let comment = document.createElement('div');
   let rating = document.createElement('div');
@@ -28,37 +46,69 @@ function renderComment(doc) {
 
   li.appendChild(rating);
 
-  calculateSum(doc);
+  calculateSum(doc, option);
 
   li.appendChild(comment);
-  commentsList.appendChild(li);
+  if (option == 1) {
+    commentsList.appendChild(li);
+  } else {
+    commentsList2.appendChild(li);
+  }
 }
 
-function addListenerToAddButton() {
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    db.collection('ramen-rating').add({
-      rating: form.rating.value,
-      comment: form.comment.value,
-    });
-    form.rating.value = '';
-    form.comment.value = '';
-  });
-}
-
-function addRealTimeRefresh() {
-  db.collection('ramen-rating')
-    .orderBy('rating')
-    .onSnapshot((snapshot) => {
-      let changes = snapshot.docChanges();
-      changes.forEach((change) => {
-        if (change.type == 'added' || change.type == 'update') {
-          renderComment(change.doc);
-          printAverage();
-        }
+function addListenerToAddButton(option) {
+  if (option == 1) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      db.collection('ramen-rating').add({
+        rating: form.rating.value,
+        comment: form.comment.value,
       });
+      form.rating.value = '';
+      form.comment.value = '';
     });
+  } else {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      db.collection('ramen-rating-2').add({
+        rating: form2.rating.value,
+        comment: form2.comment.value,
+      });
+      form2.rating.value = '';
+      form2.comment.value = '';
+    });
+  }
 }
 
-addListenerToAddButton();
-addRealTimeRefresh();
+function addRealTimeRefresh(option) {
+  if (option === 1) {
+    db.collection('ramen-rating')
+      .orderBy('rating')
+      .onSnapshot((snapshot) => {
+        let changes = snapshot.docChanges();
+        changes.forEach((change) => {
+          if (change.type == 'added' || change.type == 'update') {
+            renderComment(change.doc, option);
+            printAverage(option);
+          }
+        });
+      });
+  } else {
+    db.collection('ramen-rating-2')
+      .orderBy('rating')
+      .onSnapshot((snapshot) => {
+        let changes = snapshot.docChanges();
+        changes.forEach((change) => {
+          if (change.type == 'added' || change.type == 'update') {
+            renderComment(change.doc, option);
+            printAverage(option);
+          }
+        });
+      });
+  }
+}
+
+addListenerToAddButton(1);
+addListenerToAddButton(2);
+addRealTimeRefresh(1);
+addRealTimeRefresh(2);

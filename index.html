@@ -47,6 +47,35 @@
       </div>
     </div>
 
+    <div class="container">
+      <img src="img/ramen.jpg" alt="" />
+
+      <div class="rating-container">
+        <form id="add-rating-form2">
+          <div class="row">
+            <label for="rating"> Rate: </label>
+            <input type="number" name="rating2" placeholder="4" step="1" min="1" max="5" required />
+          </div>
+
+          <div class="row">
+            <label for="comment"> Comment: </label>
+            <textarea name="comment" id="comment2" rows="2"></textarea>
+          </div>
+
+          <button>Add Rating</button>
+        </form>
+
+        <div class="row">
+          <h2>Average rating:</h2>
+          <span id="average-rating2"></span>
+        </div>
+
+        <div>
+          <h2>Comments:</h2>
+          <ul id="comments-list2"></ul>
+        </div>
+      </div>
+
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
