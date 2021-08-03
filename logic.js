@@ -1,6 +1,5 @@
 const commentsList = document.querySelector('#comments-list');
 const form = document.querySelector('#add-rating-form');
-
 let average = 0;
 let numberOfRatings = 0;
 
@@ -17,8 +16,11 @@ function printAverage() {
 
 function renderComment(doc) {
   let li = document.createElement('li');
-  let comment = document.createElement('span');
-  let rating = document.createElement('span');
+  let comment = document.createElement('div');
+  let rating = document.createElement('div');
+
+  comment.classList.add('comment');
+  rating.classList.add('rating');
 
   li.setAttribute('data-id', doc.id);
   comment.textContent = doc.data().comment;
@@ -45,15 +47,17 @@ function addListenerToAddButton() {
 }
 
 function addRealTimeRefresh() {
-  db.collection('ramen-rating').onSnapshot((snapshot) => {
-    let changes = snapshot.docChanges();
-    changes.forEach((change) => {
-      if (change.type == 'added') {
-        renderComment(change.doc);
-      }
+  db.collection('ramen-rating')
+    .orderBy('rating')
+    .onSnapshot((snapshot) => {
+      let changes = snapshot.docChanges();
+      changes.forEach((change) => {
+        if (change.type == 'added' || change.type == 'update') {
+          renderComment(change.doc);
+          printAverage();
+        }
+      });
     });
-    printAverage();
-  });
 }
 
 addListenerToAddButton();
