@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rating system with Firebase</title>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <img src="img/ramen.jpg" alt="" />
+
+    <form id="add-rating-form">
+      <input type="number" name="rating" placeholder="4" />
+      <input type="text" name="comment" placeholder="Comment" />
+      <button>Add Rating</button>
+    </form>
+
+    <div id="average-rating"></div>
+    <ul id="comments-list"></ul>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: 'AIzaSyChv2E-F4GCtvaoN6FStOKQxuS6S2tc8rM',
+        authDomain: 'ninja-firestore-tut-baff5.firebaseapp.com',
+        databaseURL: 'https://ninja-firestore-tut-baff5-default-rtdb.firebaseio.com',
+        projectId: 'ninja-firestore-tut-baff5',
+        storageBucket: 'ninja-firestore-tut-baff5.appspot.com',
+        messagingSenderId: '846696654511',
+        appId: '1:846696654511:web:44d518a8a1a37433b4165a',
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      const db = firebase.firestore();
+      db.settings({
+        // timestampsInShapshots: true,
+        merge: true,
+      });
+    </script>
+
+    <script src="logic.js"></script>
+  </body>
+</html>
