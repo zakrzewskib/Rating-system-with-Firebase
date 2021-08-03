@@ -6,18 +6,19 @@ const form = new Array(2);
 form[0] = document.querySelector('#add-rating-form-0');
 form[1] = document.querySelector('#add-rating-form-1');
 
-let average = new Array(2).fill(0);
+let sum = new Array(2).fill(0);
 let numberOfRatings = new Array(2).fill(0);
 
+let result = 0;
 function calculateSum(doc, option) {
-  average[option] += parseInt(doc.data().rating);
+  sum[option] += parseInt(doc.data().rating);
   numberOfRatings[option]++;
 }
 
 function printAverage(option) {
-  average[option] = average[option] / numberOfRatings[option];
+  let average = sum[option] / numberOfRatings[option];
   let div = document.querySelector('#average-rating-' + option);
-  div.innerHTML = average[option];
+  div.innerHTML = Math.round(average * 100) / 100;
 }
 
 function renderComment(doc, option) {
