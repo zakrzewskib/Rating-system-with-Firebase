@@ -1,35 +1,23 @@
-const commentsList = document.querySelector('#comments-list');
-const form = document.querySelector('#add-rating-form');
+const commentsList = new Array(2);
+commentsList[0] = document.querySelector('#comments-list-0');
+commentsList[1] = document.querySelector('#comments-list-1');
 
-const commentsList2 = document.querySelector('#comments-list2');
-const form2 = document.querySelector('#add-rating-form2');
+const form = new Array(2);
+form[0] = document.querySelector('#add-rating-form-0');
+form[1] = document.querySelector('#add-rating-form-1');
 
-let average = 0;
-let numberOfRatings = 0;
-
-let average2 = 0;
-let numberOfRatings2 = 0;
+let average = new Array(2).fill(0);
+let numberOfRatings = new Array(2).fill(0);
 
 function calculateSum(doc, option) {
-  if (option == 1) {
-    average += parseInt(doc.data().rating);
-    numberOfRatings++;
-  } else {
-    average2 += parseInt(doc.data().rating);
-    numberOfRatings2++;
-  }
+  average[option] += parseInt(doc.data().rating);
+  numberOfRatings[option]++;
 }
 
 function printAverage(option) {
-  if (option == 1) {
-    average = average / numberOfRatings;
-    let div = document.querySelector('#average-rating');
-    div.innerHTML = average;
-  } else {
-    average2 = average2 / numberOfRatings2;
-    let div = document.querySelector('#average-rating2');
-    div.innerHTML = average2;
-  }
+  average[option] = average[option] / numberOfRatings[option];
+  let div = document.querySelector('#average-rating-' + option);
+  div.innerHTML = average[option];
 }
 
 function renderComment(doc, option) {
@@ -49,66 +37,36 @@ function renderComment(doc, option) {
   calculateSum(doc, option);
 
   li.appendChild(comment);
-  if (option == 1) {
-    commentsList.appendChild(li);
-  } else {
-    commentsList2.appendChild(li);
-  }
+  commentsList[option].appendChild(li);
 }
 
 function addListenerToAddButton(option) {
-  if (option == 1) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      db.collection('ramen-rating').add({
-        rating: form.rating.value,
-        comment: form.comment.value,
-      });
-      form.rating.value = '';
-      form.comment.value = '';
+  form[option].addEventListener('submit', (e) => {
+    e.preventDefault();
+    db.collection('ramen-rating-' + option).add({
+      rating: document.getElementById('rating-' + option).value,
+      comment: document.getElementById('comment-' + option).value,
     });
-  } else {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      db.collection('ramen-rating-2').add({
-        rating: form2.rating.value,
-        comment: form2.comment.value,
-      });
-      form2.rating.value = '';
-      form2.comment.value = '';
-    });
-  }
+    document.getElementById('rating-' + option).value = '';
+    document.getElementById('comment-' + option).value = '';
+  });
 }
 
 function addRealTimeRefresh(option) {
-  if (option === 1) {
-    db.collection('ramen-rating')
-      .orderBy('rating')
-      .onSnapshot((snapshot) => {
-        let changes = snapshot.docChanges();
-        changes.forEach((change) => {
-          if (change.type == 'added' || change.type == 'update') {
-            renderComment(change.doc, option);
-            printAverage(option);
-          }
-        });
+  db.collection('ramen-rating-' + option)
+    .orderBy('rating')
+    .onSnapshot((snapshot) => {
+      let changes = snapshot.docChanges();
+      changes.forEach((change) => {
+        if (change.type == 'added' || change.type == 'update') {
+          renderComment(change.doc, option);
+          printAverage(option);
+        }
       });
-  } else {
-    db.collection('ramen-rating-2')
-      .orderBy('rating')
-      .onSnapshot((snapshot) => {
-        let changes = snapshot.docChanges();
-        changes.forEach((change) => {
-          if (change.type == 'added' || change.type == 'update') {
-            renderComment(change.doc, option);
-            printAverage(option);
-          }
-        });
-      });
-  }
+    });
 }
 
+addListenerToAddButton(0);
 addListenerToAddButton(1);
-addListenerToAddButton(2);
+addRealTimeRefresh(0);
 addRealTimeRefresh(1);
-addRealTimeRefresh(2);

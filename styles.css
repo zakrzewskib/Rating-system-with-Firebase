@@ -15,6 +15,7 @@ body {
 
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
   column-gap: 80px;
 }
 
@@ -25,8 +26,12 @@ body {
   gap: 10px;
 }
 
+.rating-container {
+  font-size: 22px;
+}
+
 img {
-  height: 700px;
+  height: 600px;
 }
 
 input,
@@ -68,10 +73,6 @@ li:first-child {
   border-top: 1px solid #adb5bd;
 }
 
-.rating-container {
-  font-size: 24px;
-}
-
 h2 {
   font-size: inherit;
   font-weight: normal;
@@ -81,5 +82,7 @@ h2 {
   font-weight: bold;
 }
 
-.comment {
+.comments {
+  overflow: scroll;
+  height: 200px;
 }
