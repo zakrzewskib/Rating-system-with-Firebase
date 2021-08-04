@@ -37,26 +37,34 @@
         </div>
 
         <div class="rating-container modal" id="modal-0">
-          <button data-close-button class="close-button">&times;</button>
           <form id="add-rating-form-0">
-            <div class="row">
-              <label for="rating-0"> Rate: </label>
-              <input type="number" name="rating-0" id="rating-0" step="1" min="1" max="5" required />
-            </div>
+            <div class="comments-row">
+              <div class="average-rating">
+                <p>Average rating:</p>
+                <div id="average-rating-0-a" class="average"></div>
+              </div>
 
-            <div class="row">
-              <label for="comment-0"> Comment: </label>
-              <br />
-              <textarea name="comment-0" id="comment-0" rows="1" cols="20"></textarea>
-            </div>
+              <div>
+                <label for="rating-0"> Rate: </label>
+                <input type="number" name="rating-0" id="rating-0" step="1" min="1" max="5" required placeholder="5" />
+              </div>
 
-            <div class="row"><button class="add-button">Add</button></div>
+              <label for="comment-0" class="comment-label"> Comment: </label>
+
+              <div>
+                <textarea name="comment-0" id="comment-0" rows="3" cols="20"></textarea>
+              </div>
+
+              <div class="button-center"><button class="add-button">Add</button></div>
+            </div>
           </form>
 
-          <div class="comments">
+          <div class="comments comments-row">
             <div>Comments:</div>
-            <ul id="comments-list-0"></ul>
+            <ul id="comments-list-0" class="comments-list"></ul>
           </div>
+
+          <button data-close-button class="close-button">&times;</button>
         </div>
       </div>
 
@@ -74,26 +82,34 @@
         </div>
 
         <div class="rating-container modal" id="modal-1">
-          <button data-close-button class="close-button">&times;</button>
-
           <form id="add-rating-form-1">
-            <div class="row">
-              <label for="rating-1"> Rate: </label>
-              <input type="number" name="rating-1" id="rating-1" step="1" min="1" max="5" required />
-            </div>
+            <div class="comments-row">
+              <div class="average-rating">
+                <p>Average rating:</p>
+                <div id="average-rating-1-a" class="average"></div>
+              </div>
 
-            <div class="row">
-              <label for="comment-1"> Comment: </label>
-              <br />
-              <textarea name="comment-1" id="comment-1" rows="1"></textarea>
+              <div>
+                <label for="rating-0"> Rate: </label>
+                <input type="number" name="rating-1" id="rating-1" step="1" min="1" max="5" required placeholder="5" />
+              </div>
+
+              <label for="comment-0" class="comment-label"> Comment: </label>
+
+              <div>
+                <textarea name="comment-1" id="comment-1" rows="3" cols="20"></textarea>
+              </div>
+
+              <div class="button-center"><button class="add-button">Add</button></div>
             </div>
-            <div class="row"><button class="add-button">Add</button></div>
           </form>
 
-          <div class="comments">
-            <p>Comments:</p>
-            <ul id="comments-list-1"></ul>
+          <div class="comments comments-row">
+            <div>Comments:</div>
+            <ul id="comments-list-1" class="comments-list"></ul>
           </div>
+
+          <button data-close-button class="close-button">&times;</button>
         </div>
       </div>
     </div>

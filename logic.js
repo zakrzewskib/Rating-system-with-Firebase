@@ -19,6 +19,9 @@ function printAverage(option) {
   let average = sum[option] / numberOfRatings[option];
   let div = document.querySelector('#average-rating-' + option);
   div.innerHTML = '&nbsp;' + Math.round(average * 100) / 100;
+
+  let div2 = document.querySelector('#average-rating-' + option + '-a');
+  div2.innerHTML = '&nbsp;' + Math.round(average * 100) / 100;
 }
 
 function renderComment(doc, option) {
