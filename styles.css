@@ -15,25 +15,12 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  column-gap: 20px;
+  column-gap: 30px;
   row-gap: 20px;
-}
-.container {
-}
-
-.row {
-  margin-bottom: 10px;
 }
 
 img {
   width: 100%;
-  height: 100%;
-}
-
-.image {
-  width: 300px;
-  box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.07);
-  margin-bottom: 20px;
 }
 
 input,
@@ -50,14 +37,16 @@ textarea {
   resize: none;
 }
 
-button {
+.add-button,
+.close-button {
   background-color: #212529;
   color: #fff;
   padding: 7px 14px;
   display: block;
 }
 
-button:hover {
+.add-button:hover,
+.close-button:hover {
   background-color: #343a40;
   cursor: pointer;
 }
@@ -79,36 +68,21 @@ li:first-child {
   border-top: 1px solid #adb5bd;
 }
 
-h2 {
-  font-size: inherit;
-  font-weight: normal;
-}
-
-.rating {
-  font-weight: bold;
-}
-
-.comments {
-  overflow: scroll;
-  height: 200px;
-  width: 400px;
-}
-
 .image {
   position: relative;
-  cursor: pointer;
+}
+
+.image:hover .on-image {
+  opacity: 0.8;
 }
 
 .on-image {
   position: absolute;
+  cursor: pointer;
   left: 0;
-  bottom: -5px;
-  background-color: #111;
+  bottom: 0;
+  background-color: black;
   color: #fff;
-  height: 80px;
-  width: 100%;
-
-  font-weight: bold;
   font-size: 18px;
 
   display: grid;
@@ -116,6 +90,9 @@ h2 {
   grid-template-rows: 1fr 1fr;
   justify-items: center;
   align-items: center;
+
+  height: 80px;
+  width: 100%;
 
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
@@ -125,20 +102,25 @@ h2 {
   display: flex;
 }
 
-.image:hover .on-image {
-  opacity: 0.8;
+.average {
+  font-weight: bold;
 }
 
-.note {
+.recommended {
   background: #f3b13f;
   color: #fff;
   font-size: 12px;
+
   text-transform: uppercase;
   font-weight: bold;
+
   letter-spacing: 2px;
   border-radius: 16px;
+
   padding: 7px 15px;
+
   display: inline-block;
+
   position: absolute;
   top: -15px;
   right: -75px;
@@ -146,32 +128,27 @@ h2 {
   z-index: 1;
 }
 
-.see-comments {
-  grid-column: 1 / -1;
-  width: 100%;
-  border: none;
-}
-
-.see-comments:hover {
-  background-color: black;
-}
-
 .modal {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
-  transition: 200ms ease-in-out;
-  z-index: 10;
-  background-color: white;
-  /* width: 500px;
-  max-width: 80%; */
+  transition: 0.2s ease-in-out;
+  z-index: 3;
 }
 
 .rating-container {
-  width: 800px;
+  width: 50%;
+  height: 50%;
   text-align: center;
   font-size: 18px;
+  background-color: white;
+}
+
+.comments {
+  overflow: scroll;
+  height: 300px;
+  width: 50%;
 }
 
 .modal.active {
@@ -181,16 +158,20 @@ h2 {
 #overlay {
   position: fixed;
   opacity: 0;
-  transition: 200ms ease-in-out;
+  transition: 0.2s ease-in-out;
+
   pointer-events: none;
+
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.2);
+
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 #overlay.active {
   opacity: 1;
   pointer-events: all;
+  z-index: 2;
 }
