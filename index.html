@@ -1,95 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rating system with Firebase</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rating system with Firebase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
 
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-  <link rel="stylesheet" href="styles.css" />
-</head>
+  <body>
+    <div class="outside-container">
+      <div class="container">
+        <div class="image">
+          <p class="note">Rekomendacja eksperta</p>
 
-<body>
-  <div class="outside-container">
-    <div class="container">
-      <div class="image">
+          <img src="img/ramen.jpg" alt="" />
 
-        <p class="sale">Rekomendacja eksperta</p>
+          <div class="row on-image">
+            <h2>Average rating:</h2>
+            <div id="average-rating-0"></div>
+          </div>
+        </div>
 
-        <img src="img/ramen.jpg" alt="" />
+        <div class="rating-container">
+          <form id="add-rating-form-0">
+            <div class="row">
+              <label for="rating-0"> Rate: </label>
+              <input type="number" name="rating-0" id="rating-0" step="1" min="1" max="5" required />
+            </div>
 
-        <div class="row on-image">
-          <h2>Average rating:</h2>
-          <div id="average-rating-0"></div>
+            <div class="row">
+              <label for="comment-0"> Comment: </label>
+              <br />
+              <textarea name="comment-0" id="comment-0" rows="1" cols="20"></textarea>
+            </div>
+
+            <div class="row"><button>Add</button></div>
+          </form>
+
+          <div class="comments">
+            <h2>Comments:</h2>
+            <ul id="comments-list-0"></ul>
+          </div>
         </div>
       </div>
 
-      <div class="rating-container">
-        <form id="add-rating-form-0">
-          <div class="row">
-            <label for="rating-0"> Rate: </label>
-            <input type="number" name="rating-0" id="rating-0" step="1" min="1" max="5" required />
+      <div class="container">
+        <div class="image">
+          <img src="img/ramen.jpg" alt="" />
+
+          <div class="row on-image">
+            <h2>Average rating:</h2>
+            <div id="average-rating-1"></div>
+            <button class="see-comments">See comments</button>
           </div>
-
-          <div class="row">
-            <label for="comment-0"> Comment: </label>
-            <br>
-            <textarea name="comment-0" id="comment-0" rows="1" cols="20"></textarea>
-          </div>
-
-          <div class="row"><button>Add</button></div>
-
-        </form>
-
-        <div class="comments">
-          <h2>Comments:</h2>
-          <ul id="comments-list-0"></ul>
         </div>
-      </div>
-    </div>
 
-    <div class="container">
+        <div class="rating-container">
+          <form id="add-rating-form-1">
+            <div class="row">
+              <label for="rating-1"> Rate: </label>
+              <input type="number" name="rating-1" id="rating-1" step="1" min="1" max="5" required />
+            </div>
 
-      <div class="image">
-        <img src="img/ramen.jpg" alt="" />
+            <div class="row">
+              <label for="comment-1"> Comment: </label>
+              <br />
+              <textarea name="comment-1" id="comment-1" rows="1"></textarea>
+            </div>
+            <div class="row"><button>Add</button></div>
+          </form>
 
-        <div class="row on-image">
-          <h2>Average rating:</h2>
-          <div id="average-rating-1"></div>
-        </div>
-      </div>
-
-      <div class="rating-container">
-        <form id="add-rating-form-1">
-          <div class="row">
-            <label for="rating-1"> Rate: </label>
-            <input type="number" name="rating-1" id="rating-1" step="1" min="1" max="5" required />
+          <div class="comments">
+            <h2>Comments:</h2>
+            <ul id="comments-list-1"></ul>
           </div>
-
-          <div class="row">
-            <label for="comment-1"> Comment: </label>
-            <br>
-            <textarea name="comment-1" id="comment-1" rows="1"></textarea>
-          </div>
-          <div class="row"><button>Add</button></div>
-
-        </form>
-
-        <div class="comments">
-          <h2>Comments:</h2>
-          <ul id="comments-list-1"></ul>
         </div>
       </div>
 
+      <!-- <div class="container">
+        <div class="image">
+          <img src="img/ramen.jpg" alt="" />
+
+          <div class="row on-image">
+            <h2>Average rating:</h2>
+            <div id="average-rating-0"></div>
+          </div>
+        </div>
+
+        <div class="rating-container">
+          <form id="add-rating-form-0">
+            <div class="row">
+              <label for="rating-0"> Rate: </label>
+              <input type="number" name="rating-0" id="rating-0" step="1" min="1" max="5" required />
+            </div>
+
+            <div class="row">
+              <label for="comment-0"> Comment: </label>
+              <br />
+              <textarea name="comment-0" id="comment-0" rows="1" cols="20"></textarea>
+            </div>
+
+            <div class="row"><button>Add</button></div>
+          </form>
+
+          <div class="comments">
+            <h2>Comments:</h2>
+            <ul id="comments-list-0"></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="image">
+          <img src="img/ramen.jpg" alt="" />
+
+          <div class="row on-image">
+            <h2>Average rating:</h2>
+            <div id="average-rating-0"></div>
+          </div>
+        </div>
+
+        <div class="rating-container">
+          <form id="add-rating-form-0">
+            <div class="row">
+              <label for="rating-0"> Rate: </label>
+              <input type="number" name="rating-0" id="rating-0" step="1" min="1" max="5" required />
+            </div>
+
+            <div class="row">
+              <label for="comment-0"> Comment: </label>
+              <br />
+              <textarea name="comment-0" id="comment-0" rows="1" cols="20"></textarea>
+            </div>
+
+            <div class="row"><button>Add</button></div>
+          </form>
+
+          <div class="comments">
+            <h2>Comments:</h2>
+            <ul id="comments-list-0"></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="image">
+          <img src="img/ramen.jpg" alt="" />
+
+          <div class="row on-image">
+            <h2>Average rating:</h2>
+            <div id="average-rating-0"></div>
+          </div>
+        </div>
+
+        <div class="rating-container">
+          <form id="add-rating-form-0">
+            <div class="row">
+              <label for="rating-0"> Rate: </label>
+              <input type="number" name="rating-0" id="rating-0" step="1" min="1" max="5" required />
+            </div>
+
+            <div class="row">
+              <label for="comment-0"> Comment: </label>
+              <br />
+              <textarea name="comment-0" id="comment-0" rows="1" cols="20"></textarea>
+            </div>
+
+            <div class="row"><button>Add</button></div>
+          </form>
+
+          <div class="comments">
+            <h2>Comments:</h2>
+            <ul id="comments-list-0"></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="image">
+          <img src="img/ramen.jpg" alt="" />
+
+          <div class="row on-image">
+            <h2>Average rating:</h2>
+            <div id="average-rating-0"></div>
+          </div>
+        </div>
+
+        <div class="rating-container">
+          <form id="add-rating-form-0">
+            <div class="row">
+              <label for="rating-0"> Rate: </label>
+              <input type="number" name="rating-0" id="rating-0" step="1" min="1" max="5" required />
+            </div>
+
+            <div class="row">
+              <label for="comment-0"> Comment: </label>
+              <br />
+              <textarea name="comment-0" id="comment-0" rows="1" cols="20"></textarea>
+            </div>
+
+            <div class="row"><button>Add</button></div>
+          </form>
+
+          <div class="comments">
+            <h2>Comments:</h2>
+            <ul id="comments-list-0"></ul>
+          </div>
+        </div>
+      </div> -->
     </div>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
@@ -117,6 +245,5 @@
     </script>
 
     <script src="logic.js"></script>
-</body>
-
+  </body>
 </html>

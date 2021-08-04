@@ -9,13 +9,16 @@ body {
   color: #212529;
 }
 
-.container {
-  margin: 50px auto;
+.outside-container {
   width: 1000px;
+  margin: 50px auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  column-gap: 80px;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+.container {
 }
 
 .row {
@@ -28,11 +31,14 @@ img {
 }
 
 .image {
-  width: 400px;
+  width: 300px;
+  box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.07);
+  margin-bottom: 20px;
 }
 
 .rating-container {
   font-size: 18px;
+  display: none;
 }
 
 input,
@@ -122,7 +128,7 @@ h2 {
   opacity: 0.8;
 }
 
-.sale {
+.note {
   background: #f3b13f;
   color: #fff;
   font-size: 12px;
@@ -135,4 +141,9 @@ h2 {
   position: absolute;
   top: -15px;
   right: -75px;
+
+  z-index: 1;
+}
+
+.see-comments {
 }
