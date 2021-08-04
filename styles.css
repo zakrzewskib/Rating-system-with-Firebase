@@ -38,7 +38,6 @@ img {
 
 .rating-container {
   font-size: 18px;
-  display: none;
 }
 
 input,
@@ -110,21 +109,27 @@ h2 {
   bottom: -5px;
   background-color: #111;
   color: #fff;
-  height: 60px;
+  height: 80px;
   width: 100%;
 
   font-weight: bold;
   font-size: 18px;
 
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  justify-items: center;
   align-items: center;
-  justify-content: center;
 
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
 
-.image:hover .on-image {
+.average-rating {
+  display: flex;
+}
+
+.image .on-image {
   opacity: 0.8;
 }
 
@@ -146,4 +151,41 @@ h2 {
 }
 
 .see-comments {
+  /* padding: 0;
+  display: inline-block; */
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  z-index: 10;
+  background-color: white;
+  /* width: 500px;
+  max-width: 80%; */
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
 }

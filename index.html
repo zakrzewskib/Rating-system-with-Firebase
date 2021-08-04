@@ -14,6 +14,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
 
+    <script defer src="popup.js"></script>
+
     <link rel="stylesheet" href="styles.css" />
   </head>
 
@@ -26,12 +28,16 @@
           <img src="img/ramen.jpg" alt="" />
 
           <div class="row on-image">
-            <h2>Average rating:</h2>
-            <div id="average-rating-0"></div>
+            <div class="average-rating">
+              <h2>Average rating:</h2>
+              <div id="average-rating-0"></div>
+            </div>
+            <button data-modal-target="#modal-0" class="see-comments">See comments</button>
           </div>
         </div>
 
-        <div class="rating-container">
+        <div class="rating-container modal" id="modal-0">
+          <button data-close-button class="close-button">&times;</button>
           <form id="add-rating-form-0">
             <div class="row">
               <label for="rating-0"> Rate: </label>
@@ -59,13 +65,17 @@
           <img src="img/ramen.jpg" alt="" />
 
           <div class="row on-image">
-            <h2>Average rating:</h2>
-            <div id="average-rating-1"></div>
-            <button class="see-comments">See comments</button>
+            <div class="average-rating">
+              <h2>Average rating:</h2>
+              <div id="average-rating-1"></div>
+            </div>
+            <button data-modal-target="#modal-1" class="see-comments">See comments</button>
           </div>
         </div>
 
-        <div class="rating-container">
+        <div class="rating-container modal" id="modal-1">
+          <button data-close-button class="close-button">&times;</button>
+
           <form id="add-rating-form-1">
             <div class="row">
               <label for="rating-1"> Rate: </label>
@@ -219,6 +229,8 @@
         </div>
       </div> -->
     </div>
+
+    <div id="overlay"></div>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
