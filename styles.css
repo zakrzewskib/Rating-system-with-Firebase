@@ -71,6 +71,12 @@ textarea {
 .close-button:hover {
   background-color: #343a40;
   cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.add-button:active,
+.close-button:active {
+  transform: scale(0.98);
 }
 
 ul {
