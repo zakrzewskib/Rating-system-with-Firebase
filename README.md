@@ -16,7 +16,7 @@ so I think I should use some <strong>framework</strong> (Vue or React) to create
 it more clean.
 
 ### Results
-* <strike>(work in progress - link to photos must be replaced in codepen project) You check this project on my <a href="">Codepen</a></strike>.
+* <strike>You check this project on my <a href="">Codepen</a></strike>.
 * And on the screenshots below:
   <img src="https://github.com/zakrzewskib/Rating-system-with-Firebase/blob/main/screenshots/screenshot%201.png">
   <img src="https://github.com/zakrzewskib/Rating-system-with-Firebase/blob/main/screenshots/screenshot%202.png">
