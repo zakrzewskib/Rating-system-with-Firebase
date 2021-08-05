@@ -7,7 +7,7 @@
   * Positioning (position: absolute for child element and position: relative for parent element)
   * Hover effects, transforming and transition (learned in the <a href="https://www.youtube.com/watch?v=BjlC18jZe1o">Pasja Informatyki's 
   course</a>)
-* And practise Javascript - <a href="https://www.youtube.com/watch?v=MBaw_6cPmAw">Building a Popup</a>
+* And Javascript - <a href="https://www.youtube.com/watch?v=MBaw_6cPmAw">Building a Popup</a>
 
 Website is <em>not yet</em> responsive.
 
