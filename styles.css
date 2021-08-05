@@ -29,6 +29,8 @@ h1 {
 
 img {
   width: 100%;
+  display: block;
+  /* border-radius: 12px; */
 }
 
 input,
@@ -94,10 +96,6 @@ hr {
 
 .image {
   position: relative;
-}
-
-.container {
-  /* background-color: red; */
 }
 
 .image:hover .on-image {
