@@ -80,6 +80,11 @@ li:first-child {
   border-top: 1px solid #adb5bd;
 }
 
+hr {
+  width: auto;
+  display: block;
+}
+
 .image {
   position: relative;
 }
@@ -192,6 +197,10 @@ li:first-child {
 
 .comment-label {
   margin-bottom: -20px;
+}
+
+.comments-list {
+  width: 100%;
 }
 
 .modal.active {
