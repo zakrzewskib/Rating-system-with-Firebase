@@ -12,11 +12,11 @@
 Website is <em>not yet</em> responsive.
 
 There are multitple photos and average ratings, comments etc., 
-so it suggests to use some frontend <strong>framework</strong> (Vue or React) to create a component and use it mutitple times - it would limit the code and make
+so I think I should use some <strong>framework</strong> (Vue or React) to create a component and use it mutitple times - it would limit the code and make
 it more clean.
 
 ### Results
-* <del> (work in progress - link to photos must be replaced in codepen project) You check this project on my <a href="">Codepen</a>.</del>
+* <strike>(work in progress - link to photos must be replaced in codepen project) You check this project on my <a href="">Codepen</a></strike>.
 * And on the screenshots below:
   <img src="https://github.com/zakrzewskib/Rating-system-with-Firebase/blob/main/screenshots/screenshot%201.png">
   <img src="https://github.com/zakrzewskib/Rating-system-with-Firebase/blob/main/screenshots/screenshot%202.png">
