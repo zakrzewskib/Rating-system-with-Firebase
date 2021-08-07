@@ -17,11 +17,14 @@ function calculateSum(doc, option) {
 
 function printAverage(option) {
   let average = sum[option] / numberOfRatings[option];
-  let div = document.querySelector('#average-rating-' + option);
-  div.innerHTML = '&nbsp;' + Math.round(average * 100) / 100;
 
+  let averageString = Math.round(average * 100) / 100;
+  averageString = averageString.toFixed(2);
+
+  let div = document.querySelector('#average-rating-' + option);
   let div2 = document.querySelector('#average-rating-' + option + '-a');
-  div2.innerHTML = '&nbsp;' + Math.round(average * 100) / 100;
+
+  div.innerHTML = div2.innerHTML = '&nbsp;' + averageString;
 }
 
 function renderComment(doc, option) {
