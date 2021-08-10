@@ -18,3 +18,4 @@ it more clean.
 ### Screenshots
   <img src="https://github.com/zakrzewskib/Rating-system-with-Firebase/blob/main/screenshots/screenshot%201.png">
   <img src="https://github.com/zakrzewskib/Rating-system-with-Firebase/blob/main/screenshots/screenshot%202.png">
+  <img src="https://github.com/zakrzewskib/Rating-system-with-Firebase/blob/main/screenshots/screenshot%203.png">
