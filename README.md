@@ -12,8 +12,7 @@
 Website is <em>not yet</em> responsive.
 
 There are multitple photos and average ratings, comments etc., 
-so I think I should use some <strong>framework</strong> (Vue or React) to create a component and use it mutitple times - it would limit the code and make
-it more clean.
+so I think I should use some <strong>framework</strong> (Vue or React) to create a component and use it mutitple times - it would limit html code and repetition.
 
 ### Screenshots
   <img src="https://github.com/zakrzewskib/Rating-system-with-Firebase/blob/main/screenshots/screenshot%201.png">
