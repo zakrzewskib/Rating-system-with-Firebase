@@ -1,3 +1,5 @@
+# <img src="https://github.com/zakrzewskib/Rating-system-with-Firebase/blob/main/img/icons8-firebase.svg" width="32px"> Rating-system-with-Firebase
+
 ### About
 
 * This project was made after learning basics of Firebase Firestore in 
