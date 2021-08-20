@@ -1,13 +1,14 @@
+# <img src="https://github.com/zakrzewskib/Rating-system-with-Firebase/blob/main/img/icons8-firebase.svg" width="32px"> Rating-system-with-Firebase
+
 ### About
 
 * This project was made after learning basics of Firebase Firestore in 
-<a href="https://www.youtube.com/watch?v=4d-gIPGzmK4&list=PL4cUxeGkcC9itfjle0ji1xOZ2cjRGY_WB">The Net Ninja tutorial</a>
+<a href="https://www.youtube.com/watch?v=4d-gIPGzmK4&list=PL4cUxeGkcC9itfjle0ji1xOZ2cjRGY_WB">The Net Ninja tutorial</a>.
 * Another purpose of this project was to practice HTML5 and CSS3:
-  * Flexbox and Grid (I learn it in <a href="https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/"> udemy course </a>)
-  * Positioning (position: absolute for child element and position: relative for parent element)
-  * Hover effects, transforming and transition (learned in the <a href="https://www.youtube.com/watch?v=BjlC18jZe1o">Pasja Informatyki's 
-  course</a>)
-* And Javascript - <a href="https://www.youtube.com/watch?v=MBaw_6cPmAw">Building a Popup</a>
+  * Flexbox and Grid
+  * Positioning (position: absolute for child element and position: relative for parent element);
+  * Hover effects, transforming and transition;
+* And Javascript - <a href="https://www.youtube.com/watch?v=MBaw_6cPmAw">Building a Popup</a>.
 
 Website is <em>not yet</em> responsive.
 
